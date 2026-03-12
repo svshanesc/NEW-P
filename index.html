@@ -26,7 +26,6 @@
     overflow-x: hidden;
   }
 
-  /* Custom cursor */
   #cursor {
     position: fixed;
     width: 10px;
@@ -39,10 +38,7 @@
     transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
     mix-blend-mode: difference;
   }
-  #cursor.hovered {
-    width: 48px;
-    height: 48px;
-  }
+  #cursor.hovered { width: 48px; height: 48px; }
   #cursor-ring {
     position: fixed;
     width: 36px;
@@ -55,12 +51,9 @@
     transition: transform 0.18s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
   }
 
-  /* NAV */
   nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 100;
     display: flex;
     justify-content: space-between;
@@ -79,6 +72,7 @@
     display: flex;
     gap: 36px;
     list-style: none;
+    align-items: center;
   }
   .nav-links a {
     font-size: 11px;
@@ -90,8 +84,19 @@
     transition: opacity 0.2s;
   }
   .nav-links a:hover { opacity: 1; }
+  .nav-links a.resume-link {
+    opacity: 1;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 7px 18px;
+    letter-spacing: 0.18em;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-links a.resume-link:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
 
-  /* HERO */
   #hero {
     height: 100vh;
     display: flex;
@@ -104,8 +109,7 @@
   #hero-reel {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     object-fit: cover;
     opacity: 0.35;
     filter: grayscale(20%);
@@ -128,10 +132,7 @@
     line-height: 0.88;
     letter-spacing: -0.01em;
   }
-  .hero-title span {
-    display: block;
-    color: var(--accent);
-  }
+  .hero-title span { display: block; color: var(--accent); }
   .hero-meta {
     text-align: right;
     opacity: 0.5;
@@ -157,8 +158,7 @@
     z-index: 2;
   }
   .scroll-line {
-    width: 1px;
-    height: 48px;
+    width: 1px; height: 48px;
     background: var(--fg);
     animation: scrollLine 2s ease infinite;
   }
@@ -170,7 +170,6 @@
   }
   @keyframes pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.6; } }
 
-  /* SECTION HEADERS */
   .section-label {
     font-size: 10px;
     letter-spacing: 0.25em;
@@ -180,7 +179,6 @@
     opacity: 0.9;
   }
 
-  /* FILTER BAR */
   #filter-bar {
     padding: 48px 48px 32px;
     display: flex;
@@ -207,10 +205,7 @@
     opacity: 1;
   }
 
-  /* WORK GRID */
-  #work {
-    padding: 0 48px 80px;
-  }
+  #work { padding: 0 48px 80px; }
 
   .project-row {
     display: grid;
@@ -223,7 +218,6 @@
   }
   .project-row.visible { opacity: 1; transform: translateY(0); }
   .project-row.full { grid-template-columns: 1fr; }
-  .project-row.trio { grid-template-columns: 2fr 1fr; }
 
   .project-card {
     position: relative;
@@ -233,12 +227,9 @@
     cursor: none;
   }
   .project-row.full .project-card { aspect-ratio: 21/9; }
-  .project-row.trio .project-card:first-child { aspect-ratio: 16/9; }
-  .project-row.trio .project-card:last-child { aspect-ratio: 9/16; }
 
   .project-card video {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.6s ease, filter 0.4s ease;
@@ -251,9 +242,7 @@
 
   .project-card-info {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 0; left: 0; right: 0;
     padding: 28px 28px 24px;
     background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, transparent 100%);
     transform: translateY(8px);
@@ -284,10 +273,8 @@
 
   .expand-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 36px;
-    height: 36px;
+    top: 20px; right: 20px;
+    width: 36px; height: 36px;
     border: 1px solid rgba(240,237,232,0.3);
     background: rgba(8,8,8,0.5);
     display: flex;
@@ -300,14 +287,11 @@
   .expand-btn svg { width: 14px; height: 14px; fill: var(--fg); }
   .project-card:hover .expand-btn { opacity: 1; }
 
-  /* PLAY INDICATOR */
   .play-indicator {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%) scale(0.8);
-    width: 60px;
-    height: 60px;
+    width: 60px; height: 60px;
     border: 1px solid rgba(240,237,232,0.5);
     border-radius: 50%;
     display: flex;
@@ -322,7 +306,6 @@
   .play-indicator svg { width: 18px; height: 18px; fill: white; margin-left: 3px; }
   .project-card.paused .play-indicator { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
-  /* LIGHTBOX */
   #lightbox {
     position: fixed;
     inset: 0;
@@ -338,16 +321,13 @@
   }
   #lightbox.open { opacity: 1; pointer-events: all; }
   #lightbox video {
-    max-width: 90vw;
-    max-height: 85vh;
-    width: auto;
-    height: auto;
+    max-width: 90vw; max-height: 85vh;
+    width: auto; height: auto;
     outline: none;
   }
   #lightbox-close {
     position: absolute;
-    top: 32px;
-    right: 40px;
+    top: 32px; right: 40px;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 13px;
     letter-spacing: 0.2em;
@@ -370,7 +350,6 @@
   }
   #lightbox-title p { font-size: 12px; opacity: 0.4; letter-spacing: 0.1em; margin-top: 4px; }
 
-  /* ABOUT */
   #about {
     padding: 120px 48px;
     display: grid;
@@ -422,11 +401,7 @@
     text-transform: uppercase;
     margin-top: 4px;
   }
-  .skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+  .skills-list { display: flex; flex-wrap: wrap; gap: 8px; }
   .skill-tag {
     padding: 6px 14px;
     border: 1px solid var(--muted);
@@ -436,7 +411,6 @@
     opacity: 0.5;
   }
 
-  /* CONTACT */
   #contact {
     padding: 100px 48px 80px;
     border-top: 1px solid var(--muted);
@@ -478,7 +452,6 @@
   }
   .cta-btn:hover { background: #d9ff5a; transform: translateY(-2px); }
 
-  /* FOOTER */
   footer {
     padding: 32px 48px;
     border-top: 1px solid var(--muted);
@@ -490,7 +463,6 @@
     letter-spacing: 0.1em;
   }
 
-  /* Noise overlay */
   body::after {
     content: '';
     position: fixed;
@@ -501,14 +473,14 @@
     z-index: 9997;
   }
 
-  /* Responsive */
   @media (max-width: 768px) {
     nav { padding: 20px 24px; }
+    .nav-links { gap: 14px; }
     .hero-title { font-size: 56px; }
     #hero { padding: 0 24px 48px; }
     #filter-bar { padding: 32px 24px 24px; }
     #work { padding: 0 24px 60px; }
-    .project-row, .project-row.trio { grid-template-columns: 1fr; }
+    .project-row { grid-template-columns: 1fr; }
     #about, #contact { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
     footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
   }
@@ -525,19 +497,13 @@
     <li><a href="#work">Work</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.figma.com/design/9Q2qrMkEJBhTb6TNV88vse/Shane-Vicencio-Resume?node-id=1-2&t=bubiGyJrPvNH5TjT-1" target="_blank" class="resume-link">Resume</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
-  <!--
-    =====================================================
-    REPLACE THIS SRC WITH YOUR OWN SHOWREEL VIDEO URL
-    e.g. src="https://your-cdn.com/showreel.mp4"
-    =====================================================
-  -->
   <video id="hero-reel" autoplay muted loop playsinline
-    src=https://res.cloudinary.com/daxbskmiw/video/upload/v1772122972/euro_summer_snfjkj.mov>
+    src="https://res.cloudinary.com/daxbskmiw/video/upload/v1772122972/euro_summer_snfjkj.mov">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -558,7 +524,6 @@
   </div>
 </section>
 
-<!-- FILTER BAR -->
 <div id="filter-bar">
   <button class="filter-btn active" data-filter="all">All Work</button>
   <button class="filter-btn" data-filter="commercial">Commercial</button>
@@ -567,18 +532,13 @@
   <button class="filter-btn" data-filter="sports">Sports</button>
 </div>
 
-<!-- WORK -->
 <section id="work">
 
-  <!-- Row 1 - Full width -->
   <div class="project-row full" data-category="commercial">
     <div class="project-card" data-title="Easter Seals — Commercial" data-client="Commercial · 2025">
-      <!--REPLACE SRC-->
-      <video muted loop playsinline src=https://res.cloudinary.com/daxbskmiw/video/upload/v1773322007/Timeline_1_lnmii0.mov></video>
+      <video muted loop playsinline src="https://res.cloudinary.com/daxbskmiw/video/upload/v1773322007/Timeline_1_lnmii0.mov"></video>
       <div class="play-indicator"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <button class="expand-btn" aria-label="Fullscreen">
-        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-      </button>
+      <button class="expand-btn" aria-label="Fullscreen"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
       <div class="project-card-info">
         <div class="project-tag">Commercial</div>
         <div class="project-title">Easter Seals Tournament</div>
@@ -587,28 +547,21 @@
     </div>
   </div>
 
-  <!-- Row 2 - Two columns -->
-  <div class="project-row" data-category="commercial">
-    <div class="project-card" data-title="Bear Cup Tournament" data-client="Music Video · 2024">
-      <!--REPLACE SRC-->
-      <video muted loop playsinline src=https://res.cloudinary.com/daxbskmiw/video/upload/v1772122127/BEARCUP_cm8l0y.mp4></video>
+  <div class="project-row" data-category="commercial documentary">
+    <div class="project-card" data-title="Bear Cup Tournament" data-client="Commercial · 2025">
+      <video muted loop playsinline src="https://res.cloudinary.com/daxbskmiw/video/upload/v1772122127/BEARCUP_cm8l0y.mp4"></video>
       <div class="play-indicator"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <button class="expand-btn" aria-label="Fullscreen">
-        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-      </button>
+      <button class="expand-btn" aria-label="Fullscreen"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
       <div class="project-card-info">
-        <div class="project-tag">Commerical</div>
+        <div class="project-tag">Commercial</div>
         <div class="project-title">Bear Cup</div>
         <div class="project-client">Bear Creek Golf Course · 2025</div>
       </div>
     </div>
     <div class="project-card" data-title="WWBB — Documentary" data-client="Documentary · 2025">
-      <!--REPLACE SRC-->
       <video muted loop playsinline src="https://res.cloudinary.com/daxbskmiw/video/upload/v1773288051/Timeline_1_faqnyg.mov"></video>
       <div class="play-indicator"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <button class="expand-btn" aria-label="Fullscreen">
-        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-      </button>
+      <button class="expand-btn" aria-label="Fullscreen"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
       <div class="project-card-info">
         <div class="project-tag">Documentary</div>
         <div class="project-title">Waterloo Women's Basketball</div>
@@ -617,15 +570,11 @@
     </div>
   </div>
 
-  <!-- Row 3 - Full width -->
   <div class="project-row full" data-category="sports">
     <div class="project-card" data-title="Flag Football" data-client="Sports · 2025">
-      <!--REPLACE SRC-->
       <video muted loop playsinline src="https://res.cloudinary.com/daxbskmiw/video/upload/v1773289230/Timeline_1_ghht14.mov"></video>
       <div class="play-indicator"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <button class="expand-btn" aria-label="Fullscreen">
-        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-      </button>
+      <button class="expand-btn" aria-label="Fullscreen"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
       <div class="project-card-info">
         <div class="project-tag">Sports</div>
         <div class="project-title">Flag Football</div>
@@ -634,29 +583,21 @@
     </div>
   </div>
 
-  <!-- Row 4 - Two columns -->
-  <div class="project-row" data-category="commercial">
+  <div class="project-row" data-category="commercial documentary">
     <div class="project-card" data-title="Golf Sim" data-client="Commercial · 2025">
-      <!--REPLACE SRC-->
       <video muted loop playsinline src="https://res.cloudinary.com/daxbskmiw/video/upload/v1773287214/SV%20VIDS/Tiger_Recreate_Vid_vh3ogb.mov"></video>
       <div class="play-indicator"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <button class="expand-btn" aria-label="Fullscreen">
-        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-      </button>
+      <button class="expand-btn" aria-label="Fullscreen"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
       <div class="project-card-info">
         <div class="project-tag">Commercial</div>
         <div class="project-title">Golf Simulator</div>
         <div class="project-client">Bear Creek Golf Club · 2025</div>
       </div>
     </div>
-    
     <div class="project-card" data-title="Amsterdam" data-client="Travel Vlog · 2025">
-      <!--REPLACE SRC-->
       <video muted loop playsinline src="https://res.cloudinary.com/daxbskmiw/video/upload/v1773290521/Timeline_1_wp2yeu.mp4"></video>
       <div class="play-indicator"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <button class="expand-btn" aria-label="Fullscreen">
-        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-      </button>
+      <button class="expand-btn" aria-label="Fullscreen"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
       <div class="project-card-info">
         <div class="project-tag">Documentary</div>
         <div class="project-title">Amsterdam</div>
@@ -667,7 +608,6 @@
 
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="about-left">
     <p class="section-label">About</p>
@@ -687,22 +627,10 @@
   </div>
   <div class="about-right">
     <div class="stats-grid">
-      <div>
-        <div class="stat-num">25+</div>
-        <div class="stat-label">Projects Complete</div>
-      </div>
-      <div>
-        <div class="stat-num">5M+</div>
-        <div class="stat-label">Views Generated</div>
-      </div>
-      <div>
-        <div class="stat-num">5+</div>
-        <div class="stat-label">Clients</div>
-      </div>
-      <div>
-        <div class="stat-num">6yr</div>
-        <div class="stat-label">In The Field</div>
-      </div>
+      <div><div class="stat-num">25+</div><div class="stat-label">Projects Complete</div></div>
+      <div><div class="stat-num">5M+</div><div class="stat-label">Views Generated</div></div>
+      <div><div class="stat-num">5+</div><div class="stat-label">Clients</div></div>
+      <div><div class="stat-num">6yr</div><div class="stat-label">In The Field</div></div>
     </div>
     <div class="skills-list">
       <span class="skill-tag">Sony A7III</span>
@@ -717,7 +645,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="contact-left">
     <p class="section-label">Let's Work</p>
@@ -731,7 +658,7 @@
     <div class="contact-info">
       <div class="contact-line">
         <span class="label">Email</span>
-        <a href="mailto:shanevice227@gmail.com">shanevice227@gmai.com</a>
+        <a href="mailto:shanevice227@gmail.com">shanevice227@gmail.com</a>
       </div>
       <div class="contact-line">
         <span class="label">Instagram</span>
@@ -751,7 +678,6 @@
   <span>Director &amp; Cinematographer &#8212; Barrie &#183; Waterloo &#183; Toronto</span>
 </footer>
 
-<!-- LIGHTBOX -->
 <div id="lightbox">
   <div id="lightbox-close">ESC / Close</div>
   <video id="lightbox-video" controls playsinline src=""></video>
@@ -762,7 +688,6 @@
 </div>
 
 <script>
-// ─── Cursor ───────────────────────────────────────────────
 const cursor = document.getElementById('cursor');
 const cursorRing = document.getElementById('cursor-ring');
 let cx = 0, cy = 0, rx = 0, ry = 0;
@@ -772,7 +697,6 @@ document.addEventListener('mousemove', e => {
   cursor.style.left = cx + 'px';
   cursor.style.top = cy + 'px';
 });
-
 (function animRing() {
   rx += (cx - rx) * 0.12;
   ry += (cy - ry) * 0.12;
@@ -786,47 +710,30 @@ document.querySelectorAll('a, button, .project-card, .filter-btn').forEach(el =>
   el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
 });
 
-// ─── Intersection Observer: animate rows in ───────────────
 const rowObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('visible');
-  });
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
-
 document.querySelectorAll('.project-row').forEach(row => rowObserver.observe(row));
 
-// ─── Video autoplay on scroll ─────────────────────────────
 const videoObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     const vid = e.target.querySelector('video');
     if (!vid) return;
-    if (e.isIntersecting) {
-      vid.play().catch(() => {});
-      e.target.classList.remove('paused');
-    } else {
-      vid.pause();
-    }
+    if (e.isIntersecting) { vid.play().catch(() => {}); e.target.classList.remove('paused'); }
+    else { vid.pause(); }
   });
 }, { threshold: 0.3 });
-
 document.querySelectorAll('.project-card').forEach(card => videoObserver.observe(card));
 
-// Click card to pause/play
 document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('click', (e) => {
     if (e.target.closest('.expand-btn')) return;
     const vid = card.querySelector('video');
-    if (vid.paused) {
-      vid.play();
-      card.classList.remove('paused');
-    } else {
-      vid.pause();
-      card.classList.add('paused');
-    }
+    if (vid.paused) { vid.play(); card.classList.remove('paused'); }
+    else { vid.pause(); card.classList.add('paused'); }
   });
 });
 
-// ─── Lightbox ─────────────────────────────────────────────
 const lightbox = document.getElementById('lightbox');
 const lbVideo = document.getElementById('lightbox-video');
 const lbTitle = document.getElementById('lb-title-text');
@@ -836,12 +743,9 @@ document.querySelectorAll('.expand-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
     const card = btn.closest('.project-card');
-    const src = card.querySelector('video').src;
-    const title = card.dataset.title;
-    const client = card.dataset.client;
-    lbVideo.src = src;
-    lbTitle.textContent = title;
-    lbClient.textContent = client;
+    lbVideo.src = card.querySelector('video').src;
+    lbTitle.textContent = card.dataset.title;
+    lbClient.textContent = card.dataset.client;
     lightbox.classList.add('open');
     lbVideo.play();
     document.body.style.overflow = 'hidden';
@@ -854,12 +758,10 @@ function closeLightbox() {
   lbVideo.src = '';
   document.body.style.overflow = '';
 }
-
 document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-// ─── Filter ───────────────────────────────────────────────
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
